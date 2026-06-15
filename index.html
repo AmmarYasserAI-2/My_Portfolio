@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ammar Yasser Portfolio</title>
+    <meta name="description" content="Ammar Yasser AI and machine learning systems showcase." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: #e2e8f0;
+        background: #060814;
+        --bg: #060814;
+        --surface: rgba(10, 15, 28, 0.96);
+        --surface-soft: rgba(15, 23, 42, 0.88);
+        --border: rgba(148, 163, 184, 0.12);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --accent-soft: rgba(56, 189, 248, 0.14);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 24%),
+          linear-gradient(180deg, #060814 0%, #02050d 100%);
+        color: var(--text);
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 72px 72px;
+        opacity: 0.16;
+        pointer-events: none;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .top-nav {
+        position: fixed;
+        inset: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px 48px;
+        z-index: 999;
+        backdrop-filter: blur(24px);
+        background: rgba(10, 15, 28, 0.92);
+        border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+      }
+
+      .brand {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 0.95rem;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: #38bdf8;
+      }
+
+      header + .page-shell {
+        padding-top: 108px;
+      }
+
+      .page-shell {
+        position: relative;
+        z-index: 1;
+        width: min(1160px, calc(100% - 36px));
+        margin: 0 auto;
+        padding-bottom: 68px;
+        display: grid;
+        gap: 34px;
+      }
+
+      .section-panel {
+        padding: 34px;
+        border-radius: 30px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        backdrop-filter: blur(24px);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-section {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        min-height: 100vh;
+        padding: 0;
+      }
+
+      .hero-name {
+        margin: 0;
+        font-size: clamp(4rem, 8vw, 7rem);
+        line-height: 0.96;
+        font-weight: 800;
+      }
+
+      .hero-role {
+        margin: 30px auto 0;
+        color: #94a3b8;
+        font-size: 1.4rem;
+        max-width: 56ch;
+        line-height: 1.8;
+      }
+
+      .about-section {
+        padding: 34px;
+        border-radius: 30px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        backdrop-filter: blur(24px);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .hero-label {
+        display: inline-flex;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(56, 189, 248, 0.18);
+        background: rgba(56, 189, 248, 0.08);
+        color: #c8f9ff;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.86rem;
+        margin: 0 auto 22px;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        font-size: clamp(3rem, 4vw, 4.6rem);
+        line-height: 0.98;
+        color: #f8fafc;
+        font-weight: 800;
+      }
+
+      .hero-copy p {
+        color: #cbd5e1;
+        line-height: 1.9;
+        margin-top: 22px;
+        max-width: 66ch;
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .button-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 36px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #020617;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .button-primary:hover {
+        transform: translateY(-1px);
+        background: #22d3ee;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+        will-change: opacity, transform;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-card {
+        padding: 30px;
+        border-radius: 28px;
+        background: rgba(15, 23, 42, 0.98);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+      }
+
+      .hero-card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #f8fafc;
+        font-weight: 700;
+      }
+
+      .hero-card p {
+        margin: 18px 0 0;
+        color: #94a3b8;
+        line-height: 1.8;
+        font-size: 0.98rem;
+      }
+
+      .hero-card .hero-chip {
+        display: inline-flex;
+        margin-top: 24px;
+        padding: 10px 16px;
+        gap: 10px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.16);
+        color: #d9fefd;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+        letter-spacing: 0.12em;
+      }
+
+      .section-header {
+        display: grid;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .section-header span {
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--accent);
+        font-size: 0.78rem;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: clamp(2.1rem, 2.7vw, 3rem);
+        color: #38bdf8;
+        font-weight: 800;
+        line-height: 1.04;
+      }
+
+      .repo-grid,
+      .stack-grid,
+      .timeline-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .repo-grid,
+      .timeline-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .repo-card,
+      .stack-card,
+      .timeline-card,
+      .contact-card {
+        padding: 26px;
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        background: rgba(15, 23, 42, 0.96);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      }
+
+      .repo-card:hover,
+      .stack-card:hover,
+      .timeline-card:hover,
+      .contact-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.24);
+        background: rgba(15, 23, 42, 1);
+      }
+
+      .repo-card h3,
+      .stack-card h3,
+      .timeline-card h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .repo-card h3,
+      .stack-card h3 {
+        color: #f8fafc;
+        font-weight: 700;
+      }
+
+      .timeline-card h3 {
+        color: #94a3b8;
+        font-size: 0.82rem;
+        font-weight: 400;
+        margin-top: 10px;
+        letter-spacing: 0.02em;
+      }
+
+      .timeline-card .repo-meta {
+        display: none;
+      }
+
+      .timeline-phase {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        font-size: 0.94rem;
+        font-weight: 800;
+      }
+
+      .repo-card p,
+      .stack-card p,
+      .timeline-card p,
+      .contact-card p {
+        margin: 16px 0 0;
+        color: #cbd5e1;
+        line-height: 1.8;
+        font-size: 0.98rem;
+      }
+
+      .repo-meta,
+      .stack-tags {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tag-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background: rgba(15, 23, 42, 0.84);
+        color: #94a3b8;
+        font-size: 0.8rem;
+      }
+
+      .repo-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .repo-card a,
+      .contact-card a {
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(56, 189, 248, 0.18);
+        background: rgba(56, 189, 248, 0.08);
+        color: #d9fefd;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .repo-card a:hover,
+      .contact-card a:hover {
+        background: rgba(56, 189, 248, 0.16);
+      }
+
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .filter-btn {
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        background: rgba(15, 23, 42, 0.84);
+        color: #94a3b8;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        transition: all 0.22s ease;
+      }
+
+      .filter-btn:hover {
+        border-color: rgba(56, 189, 248, 0.42);
+        background: rgba(56, 189, 248, 0.12);
+      }
+
+      .filter-btn.active {
+        background: var(--accent);
+        color: #020617;
+        border-color: var(--accent);
+      }
+
+      .timeline-card.hidden {
+        display: none;
+      }
+
+      .timeline-detail {
+        margin-top: 12px;
+        color: #94a3b8;
+      }
+
+      .journey-timeline {
+        position: relative;
+        padding: 40px 0;
+      }
+
+      #timeline {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 34px 0;
+      }
+
+      #timeline .section-header {
+        padding: 0 34px;
+        text-align: center;
+        gap: 0;
+        margin-bottom: 48px;
+      }
+
+      #timeline .section-header span {
+        display: none;
+      }
+
+      #timeline .section-header h2 {
+        font-size: clamp(2.8rem, 4vw, 4.2rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .journey-timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          180deg,
+          rgba(56, 189, 248, 0.6) 0%,
+          rgba(56, 189, 248, 0.2) 100%
+        );
+        transform: translateX(-50%);
+      }
+
+      .journey-items {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .journey-item {
+        position: relative;
+        width: 100%;
+      }
+
+      .journey-item:nth-child(odd) .journey-content {
+        margin-left: 0;
+        margin-right: auto;
+        padding-right: 60px;
+        width: 50%;
+      }
+
+      .journey-item:nth-child(even) .journey-content {
+        margin-left: auto;
+        margin-right: 0;
+        padding-left: 60px;
+        width: 50%;
+      }
+
+      .journey-item::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #060814;
+        border: 3px solid var(--accent);
+        transform: translateX(-50%);
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .journey-item.highlighted::before {
+        width: 24px;
+        height: 24px;
+        top: 16px;
+        background: var(--accent);
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+      }
+
+      .journey-content {
+        padding: 28px;
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(15, 23, 42, 0.88);
+        transition: all 0.3s ease;
+      }
+
+      .journey-item:hover .journey-content,
+      .journey-item.highlighted .journey-content {
+        border-color: rgba(56, 189, 248, 0.24);
+        background: rgba(15, 23, 42, 0.98);
+        box-shadow: 0 12px 32px rgba(56, 189, 248, 0.08);
+      }
+
+      .journey-date {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+
+      .journey-title {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin-bottom: 6px;
+      }
+
+      .journey-org {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .journey-desc {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .journey-desc li {
+        margin-top: 10px;
+      }
+
+      @media (max-width: 900px) {
+        .journey-timeline::before {
+          left: 20px;
+        }
+
+        .journey-item::before {
+          left: 20px;
+        }
+
+        .journey-item:nth-child(odd) .journey-content,
+        .journey-item:nth-child(even) .journey-content {
+          margin-left: 70px;
+          padding-left: 24px;
+          padding-right: 24px;
+          width: calc(100% - 70px);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .journey-timeline::before {
+          left: 12px;
+        }
+
+        .journey-item::before {
+          left: 12px;
+          width: 12px;
+          height: 12px;
+          border-width: 2px;
+          top: 18px;
+        }
+
+        .journey-item.highlighted::before {
+          width: 18px;
+          height: 18px;
+          top: 15px;
+        }
+
+        .journey-item:nth-child(odd) .journey-content,
+        .journey-item:nth-child(even) .journey-content {
+          margin-left: 50px;
+          padding: 20px;
+          width: calc(100% - 50px);
+        }
+
+        .journey-content {
+          border-radius: 18px;
+        }
+
+        .journey-title {
+          font-size: 1.05rem;
+        }
+
+        .journey-desc {
+          font-size: 0.9rem;
+        }
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: minmax(280px, 1.5fr) minmax(240px, 420px);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .contact-card {
+        display: grid;
+        gap: 14px;
+      }
+
+      .contact-card a {
+        display: inline-flex;
+        justify-content: center;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(15, 23, 42, 0.86);
+      }
+
+      .contact-footer {
+        margin-top: 24px;
+        color: #94a3b8;
+        font-size: 0.92rem;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .contact-panel,
+        .timeline-grid,
+        .repo-grid,
+        .stack-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .top-nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 18px 20px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-shell {
+          width: min(100%, calc(100% - 24px));
+          padding-bottom: 40px;
+        }
+
+        .section-panel {
+          padding: 24px;
+          border-radius: 26px;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .hero-copy h1 {
+          font-size: 2.7rem;
+        }
+
+        .section-header {
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        .timeline-phase {
+          font-size: 0.88rem;
+        }
+
+        
+
+
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <header class="top-nav">
+      <div class="brand">Ammar Yasser</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="page-shell">
+      <section id="hero" class="hero-section">
+        <div class="hero-copy">
+          <h1 class="hero-name">Ammar Yasser</h1>
+          <p class="hero-role">Machine Learning Enthusiast</p>
+          <a href="#about" class="button-primary">Explore my work</a>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="section-header">
+          <h2>About me</h2>
+        </div>
+        <p>I'm Ammar Yasser, a passionate machine learning enthusiast with a keen interest in developing intelligent systems that can learn and adapt. My journey in the world of AI and data science has led me to explore various facets of machine learning, from neural networks to natural language processing.</p>
+        <p>Through my projects and continuous learning, I strive to push the boundaries of what's possible with machine learning, always seeking innovative solutions to complex problems.</p>
+      </section>
+
+      <section id="timeline" class="section-panel">
+        <div class="section-header">
+          <span></span>
+          <h2>Timeline</h2>
+        </div>
+        <div class="journey-timeline">
+          <div class="journey-items">
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">December 2023 – October 2024</span>
+                <h3 class="journey-title">Level 3 Student – Data Science & AI Nanodegree</h3>
+                <span class="journey-org">Digital Egypt Cubs Initiative (DECI)</span>
+                <p class="journey-desc">Built foundations in Data Analysis and Exploratory Data Analysis (EDA). Worked with Python, Pandas, Matplotlib, and Jupyter Notebooks on real-world datasets. Gained hands-on experience in data visualization, problem-solving, and teamwork. Partnered with Udacity for guided training and mentorship in core data science and AI concepts.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">November 2024 – October 2025</span>
+                <h3 class="journey-title">Level 4 Student – Data Science & AI Nanodegree</h3>
+                <span class="journey-org">Digital Egypt Cubs Initiative (DECI)</span>
+                <p class="journey-desc">Developed expertise in advanced data analysis and statistical methods. Mastered univariate, bivariate, and multivariate analysis. Applied inferential statistics including Confidence Intervals, Hypothesis Testing, A/B Testing, and Probability Distributions. Built regression models (Simple/Multiple Linear & Logistic). Developed team collaboration skills through capstone project on transportation planning (Wasanly).</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">April 2025 – December 2025</span>
+                <h3 class="journey-title">GDSC DataCamp Student</h3>
+                <span class="journey-org">Google Developer Student Clubs (GDSC)</span>
+                <p class="journey-desc">Learned practical machine learning workflows through the GDSC DataCamp program. Focused on data preprocessing, feature engineering, model development, and mastered Scikit-Learn and GitHub/Git.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">May 2025 – August 2025</span>
+                <h3 class="journey-title">AWS AI & ML Scholar</h3>
+                <span class="journey-org">Amazon Web Services (AWS)</span>
+                <p class="journey-desc">Completed AWS-based Machine Learning and Generative AI training. Built hands-on projects using cloud-based AI technologies. Developed skills in LLMs, Classification, and ML deployment.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">June 2025 – July 2025</span>
+                <h3 class="journey-title">IHS Empowerment Program Student</h3>
+                <span class="journey-org">Global Leadership & Fellowship Experience</span>
+                <p class="journey-desc">Selected from over 5,000 global applicants (12% acceptance rate). One-month global learning program with mentorship, career exploration, and international collaboration. Completed capstone project focused on personal branding and innovation.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">July 2025 – August 2025</span>
+                <h3 class="journey-title">AI & ML Summer Camp</h3>
+                <span class="journey-org">Sprints × Microsoft</span>
+                <p class="journey-desc">Completed a 40-hour intensive applied AI and Machine Learning program. Focused on gradient boosting, feature engineering, and advanced algorithms. Earned MS Learn Badge.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">September 2025 – November 2025</span>
+                <h3 class="journey-title">ML-Hub Student</h3>
+                <span class="journey-org">ML-Hub</span>
+                <p class="journey-desc">Participated in foundational machine learning training as a Batch 1 student. Earned completion certificate.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">December 2025 – April 2026</span>
+                <h3 class="journey-title">Level 5 Student – Data Science & AI Trainee (Huawei Program)</h3>
+                <span class="journey-org">Digital Egypt Cubs Initiative (DECI)</span>
+                <p class="journey-desc">Advanced training in machine learning systems and AI architectures. Completed practical industry-focused projects with technical mentorship. Earned 5 specialized certificates in Cloud Computing, Data Organization, Analytics, Python, and AI.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">January 2026 – Present</span>
+                <h3 class="journey-title">STEM Program Participant – Junior Academy</h3>
+                <span class="journey-org">The New York Academy of Sciences (NYAS)</span>
+                <p class="journey-desc">Collaborating with international student teams on global STEM challenges. Developing research, teamwork, innovation, and problem-solving skills.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <div class="journey-content">
+                <span class="journey-date">April 2026 – Present</span>
+                <h3 class="journey-title">Level 5 Student – Advanced Data Science & AI Trainee (eYouth Program)</h3>
+                <span class="journey-org">Digital Egypt Cubs Initiative (DECI)</span>
+                <p class="journey-desc">Studying advanced Machine Learning, Deep Learning, Computer Vision, and Large Language Models (LLMs). Building AI solutions for complex real-world problems using industry-standard tools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-panel">
+        <div class="section-header">
+          <span></span>
+          <h2>Projects</h2>
+        </div>
+        <div class="repo-grid">
+          <article class="repo-card">
+            <h3>MindHeal AI</h3>
+            <p>An AI-powered psychological wellness ecosystem featuring 'Helia'—an emotionally adaptive digital companion built to scale supportive, conversational mental health interfaces.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">CSS3</span>
+              <span class="tag-pill">AI-LLM-Integration</span>
+              <span class="tag-pill">Responsive-UI</span>
+              <span class="tag-pill">Websockets</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/MindHeal-AI" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Comprehensive ML Full Pipeline on Heart Disease UCI Dataset</h3>
+            <p>Built during Sprints x Microsoft Summer Camp, this end-to-end medical diagnostic workflow covers outlier treatment, feature engineering, cross-validation, and production-ready metric dashboards.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">Scikit-Learn</span>
+              <span class="tag-pill">UCI-Dataset</span>
+              <span class="tag-pill">Model-Validation</span>
+              <span class="tag-pill">ML-Pipelines</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Comprehensive-ML-Full-Pipeline-on-Heart-Disease-UCI-Dataset" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Cancer predictor</h3>
+            <p>High-stakes clinical breast cancer diagnostic web engine powered by a pre-trained Scikit-Learn classification layout, wrapped in a high-performance Streamlit UI.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Streamlit</span>
+              <span class="tag-pill">Scikit-Learn</span>
+              <span class="tag-pill">Predictive-Modeling</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Cancer-predictor" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>ML Master Notebook</h3>
+            <p>A structured master repository detailing machine learning mechanics from fundamental algebra up to deep neural implementations, functioning as a standalone codebase encyclopedia.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">Machine-Learning</span>
+              <span class="tag-pill">Data-Science-Foundations</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/ML_Master_Notebook" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Analyze AB test results</h3>
+            <p>Industrial-grade optimization study that leverages descriptive statistics, probability matrices, hypothesis testing, and multi-variable logistic regression on interface variants.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">A/B-Testing</span>
+              <span class="tag-pill">Hypothesis-Testing</span>
+              <span class="tag-pill">Logistic-Regression</span>
+              <span class="tag-pill">Probability</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Analyze_AB_test_results" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Communicate Data Findings</h3>
+            <p>Udacity Data Analyst Nanodegree milestone focused on EDA for Ford GoBike transaction data to expose commuting behaviors and rider distributions.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">HTML5</span>
+              <span class="tag-pill">Matplotlib</span>
+              <span class="tag-pill">Seaborn</span>
+              <span class="tag-pill">Exploratory-Data-Analysis</span>
+              <span class="tag-pill">Udacity-Nanodegree</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Communicate-Data-Findings" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Wrangle and Analyze Data</h3>
+            <p>Comprehensive ETL pipeline parsing the WeRateDogs archive with API data mining, JSON parsing, dirty data assessment, and rigorous cleaning.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">Data-Wrangling</span>
+              <span class="tag-pill">Pandas</span>
+              <span class="tag-pill">ETL-Pipelines</span>
+              <span class="tag-pill">Data-Cleaning</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Wrangle_and_Analyze_Data" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>TMdB Movies Dataset Analysis</h3>
+            <p>Deep visual exploration analyzing film correlations between production investment, revenue margins, and audience critique trends.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">HTML5</span>
+              <span class="tag-pill">Data-Analysis</span>
+              <span class="tag-pill">Pandas</span>
+              <span class="tag-pill">Data-Visualization</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/TMdB-Movies-Dataset-Analysis" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>FocusStream</h3>
+            <p>Multi-threaded developer workspace merging web streaming layers, custom Pomodoro engines, and sticky task state boards for productivity flows.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">HTML5</span>
+              <span class="tag-pill">CSS3</span>
+              <span class="tag-pill">JavaScript</span>
+              <span class="tag-pill">Productivity-UX</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/FocusStream" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Wasalny</h3>
+            <p>Structured regional logistics and transportation UI concept focused on map-based interfaces and high-speed user interaction layouts.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">HTML5</span>
+              <span class="tag-pill">CSS-Layouts</span>
+              <span class="tag-pill">Geographic-UI</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Wasalny" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Machine Learning Specialization Coursera Assignments</h3>
+            <p>Complete mathematical and algorithmic implementations from the Andrew Ng DeepLearning.AI specialization across supervised learning and neural network tasks.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">Andrew-Ng</span>
+              <span class="tag-pill">Supervised-Learning</span>
+              <span class="tag-pill">Deep-Learning</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Machine-Learning-Specialization-Coursera-Assignments" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+          <article class="repo-card">
+            <h3>Simple ML Projects</h3>
+            <p>Fast validation testbeds built to analyze isolated algorithm behaviors including linear regression, baseline trees, and clustering engines.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Jupyter-Notebook</span>
+              <span class="tag-pill">Scikit-Learn</span>
+              <span class="tag-pill">Algorithmic-Basics</span>
+            </div>
+            <div class="repo-links">
+              <a href="https://github.com/AmmarYasserAI-2/Simple_ML_Projects" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+<!--<section id="skills" class="section-panel">
+        <div class="section-header">
+          <span></span>
+          <h2>Skills</h2>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-card">
+            <h3>Python</h3>
+            <div class="stack-tags">
+              <span class="tag-pill">Pandas</span>
+              <span class="tag-pill">NumPy</span>
+              <span class="tag-pill">Matplotlib</span>
+              <span class="tag-pill">Seaborn</span>
+              <span class="tag-pill">Jupyter Notebooks</span>
+            </div>
+          </article>
+          <article class="stack-card">
+            <h3>Machine Learning</h3>
+            <div class="stack-tags">
+              <span class="tag-pill">ML Algorithms</span>
+              <span class="tag-pill">Supervised Learning</span>
+              <span class="tag-pill">Regression Analysis</span>
+              <span class="tag-pill">Classification</span>
+            </div>
+          </article>
+          <article class="stack-card">
+            <h3>Analytics</h3>
+            <div class="stack-tags">
+              <span class="tag-pill">Data Visualization</span>
+              <span class="tag-pill">Data Wrangling</span>
+              <span class="tag-pill">EDA</span>
+              <span class="tag-pill">Data Cleaning</span>
+            </div>
+          </article>
+          <article class="stack-card">
+            <h3>Delivery</h3>
+            <div class="stack-tags">
+              <span class="tag-pill">Data Insights</span>
+              <span class="tag-pill">Data Storytelling</span>
+              <span class="tag-pill">Data Preprocessing</span>
+              <span class="tag-pill">Basic Web-dev</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    -->
+      <section id="certifications" class="section-panel">
+        <div class="section-header">
+          <span></span>
+          <h2>Certifications</h2>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Certificates</button>
+          <button class="filter-btn" data-filter="deci">DECI & Udacity</button>
+          <button class="filter-btn" data-filter="huawei">Huawei Professional</button>
+          <button class="filter-btn" data-filter="deeplearning">DeepLearning.AI</button>
+          <button class="filter-btn" data-filter="kaggle">Kaggle Academy</button>
+          <button class="filter-btn" data-filter="tech">Tech Hubs & Camps</button>
+        </div>
+        <div class="timeline-grid">
+          <article class="timeline-card" data-category="deci">
+            <p class="timeline-phase">Level Four: Data Science and AI Graduate</p>
+            <h3>DECI & Udacity Program</h3>
+            <p class="timeline-detail">Completion of an advanced global program spanning data science, machine learning, and AI systems delivered from Nov 2024 to Aug 2025.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Data Science</span>
+              <span class="tag-pill">AI Engineering</span>
+              <span class="tag-pill">Udacity</span>
+            </div>
+            <p class="timeline-detail">Issued: Oct 2025</p>
+          </article>
+          <article class="timeline-card" data-category="deci">
+            <p class="timeline-phase">Executive Masterclass on Rights-Based Digital Transformation for UN Senior Leadership</p>
+            <h3>UNICEF</h3>
+            <p class="timeline-detail">Strategic leadership training on rights-based digital transformation for senior global stakeholders.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Digital Strategy</span>
+              <span class="tag-pill">Leadership</span>
+              <span class="tag-pill">UNICEF</span>
+            </div>
+            <p class="timeline-detail">Issued: Jun 2026</p>
+          </article>
+          <article class="timeline-card" data-category="deci">
+            <p class="timeline-phase">IHS Empowerment Program Certificate</p>
+            <h3>IHS</h3>
+            <p class="timeline-detail">Global high school certificate focused on leadership, mindset development, and cross-cultural empowerment.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Leadership</span>
+              <span class="tag-pill">Mindset</span>
+              <span class="tag-pill">IHS</span>
+            </div>
+            <p class="timeline-detail">Issued: Jul 2025</p>
+          </article>
+          <article class="timeline-card" data-category="huawei">
+            <p class="timeline-phase">Development and Basic Concepts of Cloud Computing</p>
+            <h3>Huawei</h3>
+            <p class="timeline-detail">Core cloud computing principles, service models, and architecture fundamentals verified by Huawei.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Cloud</span>
+              <span class="tag-pill">Huawei</span>
+              <span class="tag-pill">Infrastructure</span>
+            </div>
+            <p class="timeline-detail">Issued: Jan 2026</p>
+          </article>
+          <article class="timeline-card" data-category="huawei">
+            <p class="timeline-phase">Information Representation and Data Organization</p>
+            <h3>Huawei</h3>
+            <p class="timeline-detail">Training on structured data representation, encoding systems, and analytics-ready organization methods.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Data Modeling</span>
+              <span class="tag-pill">Huawei</span>
+              <span class="tag-pill">Data Org</span>
+            </div>
+            <p class="timeline-detail">Issued: Jan 2026</p>
+          </article>
+          <article class="timeline-card" data-category="huawei">
+            <p class="timeline-phase">Data Management and Analytics</p>
+            <h3>Huawei</h3>
+            <p class="timeline-detail">Verified expertise in data lifecycle management, analytics workflows, and enterprise data governance.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Data Analytics</span>
+              <span class="tag-pill">Huawei</span>
+              <span class="tag-pill">Governance</span>
+            </div>
+            <p class="timeline-detail">Issued: Jan 2026</p>
+          </article>
+          <article class="timeline-card" data-category="huawei">
+            <p class="timeline-phase">Python Programming Basics</p>
+            <h3>Huawei</h3>
+            <p class="timeline-detail">Verified foundational Python programming skills including scripting, control flow, and basic automation.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Huawei</span>
+              <span class="tag-pill">Programming</span>
+            </div>
+            <p class="timeline-detail">Issued: Jan 2026</p>
+          </article>
+          <article class="timeline-card" data-category="huawei">
+            <p class="timeline-phase">Overview on AI</p>
+            <h3>Huawei</h3>
+            <p class="timeline-detail">High-level AI overview certificate covering model families, application areas, and ethical considerations.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">AI Overview</span>
+              <span class="tag-pill">Huawei</span>
+              <span class="tag-pill">Foundations</span>
+            </div>
+            <p class="timeline-detail">Issued: Dec 2025</p>
+          </article>
+          <article class="timeline-card" data-category="deeplearning">
+            <p class="timeline-phase">Machine Learning Specialization</p>
+            <h3>DeepLearning.AI</h3>
+            <p class="timeline-detail">Full 3-course series covering supervised learning, neural networks, and practical machine learning applications.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">DeepLearning.AI</span>
+              <span class="tag-pill">Specialization</span>
+              <span class="tag-pill">ML</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="deeplearning">
+            <p class="timeline-phase">Supervised Machine Learning: Regression and Classification</p>
+            <h3>DeepLearning.AI</h3>
+            <p class="timeline-detail">Focused deep learning certification for regression and classification model development and validation.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Regression</span>
+              <span class="tag-pill">Classification</span>
+              <span class="tag-pill">DeepLearning.AI</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="deeplearning">
+            <p class="timeline-phase">Advanced Learning Algorithms</p>
+            <h3>DeepLearning.AI</h3>
+            <p class="timeline-detail">Advanced AI certificate covering optimization, ensemble methods, and scalable algorithm design.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Algorithms</span>
+              <span class="tag-pill">Advanced AI</span>
+              <span class="tag-pill">DeepLearning.AI</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="deeplearning">
+            <p class="timeline-phase">Unsupervised Learning, Recommenders, and Reinforcement Learning</p>
+            <h3>DeepLearning.AI</h3>
+            <p class="timeline-detail">Specialized certificate for clustering, recommender systems, and reinforcement learning strategies.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Unsupervised</span>
+              <span class="tag-pill">Recommenders</span>
+              <span class="tag-pill">Reinforcement Learning</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="kaggle">
+            <p class="timeline-phase">Intro to Machine Learning</p>
+            <h3>Kaggle Data Science Academy</h3>
+            <p class="timeline-detail">Introductory certificate covering supervised learning basics, evaluation metrics, and model interpretation.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Kaggle</span>
+              <span class="tag-pill">Intro ML</span>
+              <span class="tag-pill">Fundamentals</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="kaggle">
+            <p class="timeline-phase">Intermediate Machine Learning</p>
+            <h3>Kaggle Data Science Academy</h3>
+            <p class="timeline-detail">Intermediate certificate focused on feature engineering, model tuning, and practical ML workflows.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Kaggle</span>
+              <span class="tag-pill">Intermediate</span>
+              <span class="tag-pill">Model Tuning</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="kaggle">
+            <p class="timeline-phase">Intro to Deep Learning</p>
+            <h3>Kaggle Data Science Academy</h3>
+            <p class="timeline-detail">Entry-level deep learning certificate covering neural networks, activation functions, and model training pipelines.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Kaggle</span>
+              <span class="tag-pill">Deep Learning</span>
+              <span class="tag-pill">Introductory</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">Introduction to Generative AI Concepts</p>
+            <h3>Microsoft</h3>
+            <p class="timeline-detail">Certificate covering core generative AI ideas, foundation models, and practical use cases.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Generative AI</span>
+              <span class="tag-pill">Microsoft</span>
+              <span class="tag-pill">Concepts</span>
+            </div>
+            <p class="timeline-detail">Issued: Aug 2025</p>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">AI & ML Summer Camp (40 Hours)</p>
+            <h3>Sprints × Microsoft</h3>
+            <p class="timeline-detail">Hands-on summer camp certificate focused on practical AI and ML applications paired with industry mentorship.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Bootcamp</span>
+              <span class="tag-pill">Microsoft</span>
+              <span class="tag-pill">AI/ML</span>
+            </div>
+            <p class="timeline-detail">Issued: Aug 2025</p>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">Supervised Learning with scikit-learn</p>
+            <h3>DataCamp</h3>
+            <p class="timeline-detail">Verified scikit-learn skills for supervised learning pipelines, training, and model evaluation.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">scikit-learn</span>
+              <span class="tag-pill">Supervised Learning</span>
+              <span class="tag-pill">DataCamp</span>
+            </div>
+            <p class="timeline-detail">Issued: Aug 2025</p>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">Generative AI with AWS</p>
+            <h3>Amazon Web Services</h3>
+            <p class="timeline-detail">Certificate covering AWS-powered generative AI tools, deployment models, and practical cloud workflows.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">AWS</span>
+              <span class="tag-pill">Generative AI</span>
+              <span class="tag-pill">Cloud</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">AWS AI & ML 2025 Challenge / Scholar Certificate</p>
+            <h3>Amazon Web Services</h3>
+            <p class="timeline-detail">Scholar certificate awarded for participation in AWS AI and ML challenge initiatives.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">AWS</span>
+              <span class="tag-pill">AI Challenge</span>
+              <span class="tag-pill">Scholar</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">ML-HUB Batch 1</p>
+            <h3>ML-Hub</h3>
+            <p class="timeline-detail">Completed the first batch of ML-HUB practical training focused on data science pipelines and model delivery.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">ML-Hub</span>
+              <span class="tag-pill">Practical ML</span>
+              <span class="tag-pill">Batch 1</span>
+            </div>
+            <p class="timeline-detail">Issued: Nov 2025</p>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">GDSC DataCamp Foundation Certificate</p>
+            <h3>Google Developer Student Clubs</h3>
+            <p class="timeline-detail">Foundation certificate for data science skills delivered through the GDSC DataCamp program.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">GDSC</span>
+              <span class="tag-pill">DataCamp</span>
+              <span class="tag-pill">Foundation</span>
+            </div>
+          </article>
+          <article class="timeline-card" data-category="tech">
+            <p class="timeline-phase">Python Coder Certificate</p>
+            <h3>Digitopia</h3>
+            <p class="timeline-detail">Verified practical Python coding capabilities and foundational programming confidence.</p>
+            <div class="repo-meta">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Coding</span>
+              <span class="tag-pill">Digitopia</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section-panel">
+        <div class="section-header">
+          <h2>Contact Me</h2>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <p>If you'd like to get in touch, feel free to reach out via the following channels:</p>
+          </div>
+          <div class="contact-card">
+            <a href="mailto:ammar.batea@outlook.com">ammar.batea@outlook.com</a>
+            <a href="https://www.linkedin.com/in/ammar-batea/" target="_blank" rel="noreferrer">Connect with me</a>
+            <a href="https://github.com/AmmarYasserAI-2" target="_blank" rel="noreferrer">Check out my projects</a>
+          </div>
+        </div>
+        <div class="contact-footer">2026 Ammar Yasser.</div>
+      </section>
+    </div>
+    <script>
+      document.querySelector('.hero-copy')?.classList.add('reveal');
+      document.querySelectorAll('.section-header, .repo-card, .stack-card, .timeline-card, .contact-card').forEach((element) => {
+        element.classList.add('reveal');
+      });
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((element) => {
+        revealObserver.observe(element);
+      });
+
+      // Certificate filter functionality
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const timelineCards = document.querySelectorAll('.timeline-card');
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selectedFilter = btn.getAttribute('data-filter');
+
+          // Update active button
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Filter cards
+          timelineCards.forEach((card) => {
+            if (selectedFilter === 'all') {
+              card.classList.remove('hidden');
+            } else {
+              const cardCategory = card.getAttribute('data-category');
+              if (cardCategory === selectedFilter) {
+                card.classList.remove('hidden');
+              } else {
+                card.classList.add('hidden');
+              }
+            }
+          });
+        });
+      });
+
+      // Journey timeline highlighting
+      const journeyItems = document.querySelectorAll('.journey-item');
+
+      if (journeyItems.length > 0) {
+        const journeyObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('highlighted');
+            } else {
+              entry.target.classList.remove('highlighted');
+            }
+          });
+        }, { threshold: 0.3 });
+
+        journeyItems.forEach((item) => {
+          journeyObserver.observe(item);
+        });
+      }
+    </script>
+  </body>
+</html>
