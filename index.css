@@ -1,0 +1,71 @@
+
+
+.resume-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 24px;
+  padding: 14px 22px;
+
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  overflow: hidden;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resume-button:hover {
+  transform: translateY(-3px);
+  background: rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+/* icon animation */
+.btn-icon {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.resume-button:hover .btn-icon {
+  transform: translateY(3px);
+  animation: bounceDown 0.6s ease infinite alternate;
+}
+
+@keyframes bounceDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(4px); }
+}
+
+/* shiny sweep effect */
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.resume-button:hover .btn-shine {
+  animation: shineMove 0.9s ease;
+}
+
+@keyframes shineMove {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+}}
