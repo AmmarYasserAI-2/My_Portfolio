@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ammar Yasser Portfolio</title>
@@ -304,8 +304,7 @@
 
       .repo-card,
       .stack-card,
-      .timeline-card,
-      .contact-card {
+      .timeline-card {
         padding: 26px;
         border-radius: 24px;
         border: 1px solid rgba(148, 163, 184, 0.08);
@@ -316,8 +315,7 @@
 
       .repo-card:hover,
       .stack-card:hover,
-      .timeline-card:hover,
-      .contact-card:hover {
+      .timeline-card:hover {
         transform: translateY(-2px);
         border-color: rgba(56, 189, 248, 0.24);
         background: rgba(15, 23, 42, 1);
@@ -358,8 +356,7 @@
 
       .repo-card p,
       .stack-card p,
-      .timeline-card p,
-      .contact-card p {
+      .timeline-card p {
         margin: 16px 0 0;
         color: #cbd5e1;
         line-height: 1.8;
@@ -390,8 +387,7 @@
         margin-top: 20px;
       }
 
-      .repo-card a,
-      .contact-card a {
+      .repo-card a {
         padding: 12px 18px;
         border-radius: 999px;
         border: 1px solid rgba(56, 189, 248, 0.18);
@@ -401,8 +397,7 @@
         transition: all 0.2s ease;
       }
 
-      .repo-card a:hover,
-      .contact-card a:hover {
+      .repo-card a:hover {
         background: rgba(56, 189, 248, 0.16);
       }
 
@@ -592,6 +587,91 @@
         margin-top: 10px;
       }
 
+      /* === UPDATED CONTACT SECTION CSS === */
+      .contact-me-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .contact-me-header h2 {
+        margin: 0 0 16px 0;
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: clamp(2.1rem, 2.7vw, 3rem);
+        color: #38bdf8;
+        font-weight: 800;
+        line-height: 1.04;
+      }
+
+      .contact-me-header p {
+        color: #cbd5e1;
+        font-size: 1.05rem;
+        margin: 0;
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .contact-card {
+        padding: 40px 24px;
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        background: rgba(15, 23, 42, 0.96);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.24);
+        background: rgba(15, 23, 42, 1);
+      }
+
+      .contact-icon-wrapper {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--accent);
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .contact-icon-wrapper {
+        background: rgba(56, 189, 248, 0.16);
+        transform: scale(1.05);
+      }
+
+      .contact-card h3 {
+        margin: 0 0 12px 0;
+        color: #f8fafc;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .contact-card a, .contact-card p {
+        margin: 0;
+        color: #cbd5e1;
+        font-size: 0.98rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .contact-card a:hover {
+        color: var(--accent);
+      }
+
       @media (max-width: 900px) {
         .journey-timeline::before {
           left: 20px;
@@ -608,76 +688,8 @@
           padding-right: 24px;
           width: calc(100% - 70px);
         }
-      }
 
-      @media (max-width: 640px) {
-        .journey-timeline::before {
-          left: 12px;
-        }
-
-        .journey-item::before {
-          left: 12px;
-          width: 12px;
-          height: 12px;
-          border-width: 2px;
-          top: 18px;
-        }
-
-        .journey-item.highlighted::before {
-          width: 18px;
-          height: 18px;
-          top: 15px;
-        }
-
-        .journey-item:nth-child(odd) .journey-content,
-        .journey-item:nth-child(even) .journey-content {
-          margin-left: 50px;
-          padding: 20px;
-          width: calc(100% - 50px);
-        }
-
-        .journey-content {
-          border-radius: 18px;
-        }
-
-        .journey-title {
-          font-size: 1.05rem;
-        }
-
-        .journey-desc {
-          font-size: 0.9rem;
-        }
-      }
-
-      .contact-panel {
-        display: grid;
-        grid-template-columns: minmax(280px, 1.5fr) minmax(240px, 420px);
-        gap: 24px;
-        align-items: start;
-      }
-
-      .contact-card {
-        display: grid;
-        gap: 14px;
-      }
-
-      .contact-card a {
-        display: inline-flex;
-        justify-content: center;
-        border: 1px solid rgba(148, 163, 184, 0.12);
-        background: rgba(15, 23, 42, 0.86);
-      }
-
-      .contact-footer {
-        margin-top: 24px;
-        color: #94a3b8;
-        font-size: 0.92rem;
-        text-align: center;
-      }
-
-      @media (max-width: 900px) {
         .hero-grid,
-        .contact-panel,
         .timeline-grid,
         .repo-grid,
         .stack-grid {
@@ -719,12 +731,47 @@
           font-size: 0.88rem;
         }
 
+        .journey-timeline::before {
+          left: 12px;
+        }
+
+        .journey-item::before {
+          left: 12px;
+          width: 12px;
+          height: 12px;
+          border-width: 2px;
+          top: 18px;
+        }
+
+        .journey-item.highlighted::before {
+          width: 18px;
+          height: 18px;
+          top: 15px;
+        }
+
+        .journey-item:nth-child(odd) .journey-content,
+        .journey-item:nth-child(even) .journey-content {
+          margin-left: 50px;
+          padding: 20px;
+          width: calc(100% - 50px);
+        }
+
+        .journey-content {
+          border-radius: 18px;
+        }
+
+        .journey-title {
+          font-size: 1.05rem;
+        }
+
+        .journey-desc {
+          font-size: 0.9rem;
+        }
         
-
-
+        .contact-panel {
+          grid-template-columns: 1fr; /* Stacks to a single column on small mobile screens */
+        }
       }
-
-
     </style>
   </head>
   <body>
@@ -1319,24 +1366,47 @@
         </div>
       </section>
 
-      <section id="contact" class="section-panel">
-        <div class="section-header">
-          <h2>Contact Me</h2>
-        </div>
-        <div class="contact-panel">
-          <div>
-            <p>If you'd like to get in touch, feel free to reach out via the following channels:</p>
-          </div>
-          <div class="contact-card">
-            <a href="mailto:ammar.batea@outlook.com">ammar.batea@outlook.com</a>
-            <a href="https://www.linkedin.com/in/ammar-batea/" target="_blank" rel="noreferrer">Connect with me</a>
-            <a href="https://github.com/AmmarYasserAI-2" target="_blank" rel="noreferrer">Check out my projects</a>
-          </div>
-        </div>
-        <div class="contact-footer">2026 Ammar Yasser.</div>
-      </section>
-    </div>
-    <script>
+</section> 
+
+<section id="contact" class="section-panel">
+  <div class="contact-me-header">
+    <h2>Contact Me</h2>
+    <p>If you'd like to get in touch, feel free to reach out via the following channels:</p>
+  </div>
+  
+  <div class="contact-panel">
+    
+    <!-- Email Card -->
+    <a href="mailto:ammar.batea@outlook.com" class="contact-card" style="text-decoration: none;">
+      <div class="contact-icon-wrapper">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+      <h3>Email</h3>
+      <p>ammar.batea@outlook.com</p>
+    </a>
+
+    <!-- LinkedIn Card -->
+    <a href="https://www.linkedin.com/in/ammar-batea/" target="_blank" rel="noopener noreferrer" class="contact-card" style="text-decoration: none;">
+      <div class="contact-icon-wrapper">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </div>
+      <h3>LinkedIn</h3>
+      <p>Connect with me</p>
+    </a>
+
+    <!-- GitHub Card -->
+    <a href="https://github.com/AmmarYasserAI-2/" target="_blank" rel="noopener noreferrer" class="contact-card" style="text-decoration: none;">
+      <div class="contact-icon-wrapper">
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <h3>GitHub</h3>
+      <p>Check out my projects</p>
+    </a>
+
+  </div>
+</section>    </div>
+  </body>
+</html>    <script>
       document.querySelector('.hero-copy')?.classList.add('reveal');
       document.querySelectorAll('.section-header, .repo-card, .stack-card, .timeline-card, .contact-card').forEach((element) => {
         element.classList.add('reveal');
@@ -1401,5 +1471,7 @@
         });
       }
     </script>
+
+    
   </body>
 </html>
